@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "myfooditems",
+  "info": {
+    "singularName": "myfooditem",
+    "pluralName": "myfooditems",
+    "displayName": "myfooditems"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "peremption": {
+      "type": "date"
+    },
+    "category": {
+      "type": "string"
+    }
+  }
+}

@@ -22,16 +22,12 @@ function getFood(){
 
 function renderFood(food) {
  let list = [];
-food.forEach(f => {
-    const item = `<li>${f.title}</li>`;
+food.forEach((f) => {
+    const item = `<li>${f.attributes.title}</li>`;
+    console.log(item);
     list = [...list, item];
     
 });
 console.log(list)
-//  food.forEach((f) => {
-//     const item = `<li>${f.title}</li>`;
-//     list=[...list, item];
-    
-//  });
-//  console.log(list);
+foodDiv.innerHTML=`<ul>${list.join(" ")}</ul>`
 }
