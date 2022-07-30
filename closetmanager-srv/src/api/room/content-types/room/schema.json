@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rooms",
+  "info": {
+    "singularName": "room",
+    "pluralName": "rooms",
+    "displayName": "rooms",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sd": {
+      "type": "string"
+    },
+    "sqds": {
+      "type": "integer"
+    },
+    "zm": {
+      "type": "email"
+    },
+    "dfs": {
+      "type": "password"
+    }
+  }
+}
