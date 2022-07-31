@@ -61,13 +61,13 @@ function addFood(e) {
   //     category: "default",
   //   } 
 
-   const payload = {
+  const payload = {
     "data": {
       title: title,
       expirationdate: date,
       category: "default",
-      }
     }
+  }
 
   fetch(url, {
     method: "POST",
@@ -76,8 +76,8 @@ function addFood(e) {
     },
     body: JSON.stringify(payload),
   })
-    .then((response) => response.json())    
-    .then( (data)=>{
+    .then((response) => response.json())
+    .then((data) => {
       console.log("data en retour", data.data.id);
       // reset
       foodTitle.value = "";
@@ -109,8 +109,14 @@ function deleteFoodItem(e) {
   if (e.target.nodeName.toLowerCase() !== "button") {
     return;
   }
-  const parentDiv = e.target.parentElement;
+  // const parentDiv = e.target.parentElement;
   const foodItemId = e.target.parentNode.id;
-  console.dir(e.target.parentNode);
-  console.dir(foodItemId);
+  // console.dir(e.target.parentNode);
+  console.log("foodItemId", foodItemId);
+  fetch(`${url}/${foodItemId}`, {
+    method: "DELETE"
+  }).then((res) => {
+    console.log(res.json());
+    getFood();
+  });
 }
