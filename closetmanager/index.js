@@ -8,6 +8,9 @@ const expirationDate = addfoodForm.expirationdate;
 addfoodForm.addEventListener("submit", addFood);
 let lastAddedItem = null;
 
+// event delegation & delete item
+foodDiv.addEventListener("click", deleteFoodItem);
+
 init()
 
 function init() {
@@ -33,7 +36,7 @@ function getFood() {
 function renderFood(food) {
   let list = [];
   food.forEach((f) => {
-    const item = `<li id="${f.id}">${f.attributes.title}</li>`;
+    const item = `<li id="${f.id}"><button data-id="${f.id}">x</button> ${f.attributes.title}</li>`;
     console.log(item);
     list = [...list, item];
 
@@ -100,4 +103,14 @@ function flashLastAddedItem(item) {
     lastAddedItemElement.classList.remove("just-added");
     lastAddedItem = null;
   }, 2000);
+}
+
+function deleteFoodItem(e) {
+  if (e.target.nodeName.toLowerCase() !== "button") {
+    return;
+  }
+  const parentDiv = e.target.parentElement;
+  const foodItemId = e.target.parentNode.id;
+  console.dir(e.target.parentNode);
+  console.dir(foodItemId);
 }
